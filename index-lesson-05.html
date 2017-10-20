@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            .color-red {
+                color: red;
+            }
+
+            .is-loading {
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+            <button :title="title">Hover over me</button>
+            <h1 :class="className">Hello World</h1>
+            <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle me</button><br />
+            <button :disabled="{ isDisabled }" @click="disableBtn">Click to make disabled</button>
+        </div>
+        <script src="https://unpkg.com/vue@2.5.2/dist/vue.js"></script>
+
+        <script>
+
+            new Vue({
+                el: '#root',
+                data: {
+                    title: 'Now the title is being set through javascript',
+                    className: 'color-red',
+                    isLoading: false,
+                    isDisabled: false
+                },
+                methods: {
+                    toggleClass() {
+                        this.isLoading = true;
+                    },
+                    disableBtn() {
+                        this.isDisabled = true;
+                    }
+
+                }
+            })
+        </script>
+    </body>
+</html>
